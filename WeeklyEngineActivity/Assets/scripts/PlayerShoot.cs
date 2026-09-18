@@ -1,0 +1,77 @@
+using System.Collections;
+using System.Runtime.InteropServices.WindowsRuntime;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class PlayerShoot : MonoBehaviour
+{
+
+
+    public GameObject portal1;
+    public GameObject portal2;
+
+    [SerializeField]
+    private Camera cam;
+
+
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            ShootPortal();
+        }
+    }
+
+    void ShootPortal()
+    {
+        Vector3 shootdirection = cam.transform.forward;
+
+
+        if (portal1.GetComponent<portals>().fired == false)
+        {
+            portal1.GetComponent<portals>().fired = true;
+            portal2.GetComponent<portals>().fired = false;
+            
+
+            //StartCoroutine(pauseEnableProj(portal1));
+            portal1.transform.position = transform.position;
+            portal1.GetComponent<Rigidbody>().linearVelocity = shootdirection * 10000 * Time.deltaTime;
+
+        }else if (portal2.GetComponent<portals>().fired == false)
+        {
+            portal2.GetComponent<portals>().fired = true;
+            portal1.GetComponent<portals>().fired = false;
+            
+
+            //StartCoroutine(pauseEnableProj(portal2));
+            portal2.transform.position = transform.position;
+            portal2.GetComponent<Rigidbody>().linearVelocity = shootdirection * 10000 * Time.deltaTime;
+        }
+        
+
+
+        
+
+
+    }
+
+
+    private IEnumerator pauseEnableProj(GameObject proj)
+    {
+
+        proj.SetActive(false);
+        yield return new WaitForSecondsRealtime(0.2f);
+        proj.SetActive(true);
+    }
+
+}

@@ -35,7 +35,16 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+        canMove = true;
+
+        // Set the raycast to be slightly beneath the player's feet
+        playerHeight = GetComponent<CapsuleCollider>().height * transform.localScale.y;
+        raycastDistance = (playerHeight / 2) + 0.2f;
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
