@@ -1,30 +1,70 @@
+using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 
-public class portals : MonoBehaviour
+public class portals : Projectile
 {
 
-    public bool fired = false;
-    private Rigidbody rb;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    private bool fired = false;
+    private bool visible = false;
+    public GameObject otherPortal;
 
-        rb = GetComponent<Rigidbody>();
+    new void Start()
+    {
+        base.Start();
+        SetFired(false);
     }
+
+
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (visible)
+        {
+            GetComponent<MeshRenderer>().enabled = true;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().enabled = false;
+        }
     }
 
 
-    private void OnTriggerEnter(Collider other)
+
+    public void setVisible(bool _visibility)
     {
-        if (other.gameObject.layer == 3)
+        visible = _visibility;
+    }
+
+    public bool getVisibility()
+    {
+        return visible;
+    }
+
+
+    public void SetFired(bool _fired)
+    {
+        fired = _fired;
+    }
+
+
+    public bool GetFired()
+    {
+        return fired;
+    }
+
+    new void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+
+        if (other.gameObject.CompareTag("Player"))
         {
-            rb.linearVelocity = new Vector3(0, 0, 0);
+            if (visible)
+            {
+                other.gameObject.transform.position = otherPortal.transform.position;
+                other.GetComponent<Rigidbody>().linearVelocity = transform.up * 10;
+            }
         }
     }
 }

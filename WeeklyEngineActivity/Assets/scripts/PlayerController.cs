@@ -1,8 +1,9 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour,IMoveable
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -31,6 +32,11 @@ public class PlayerController : MonoBehaviour
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
+
+
+    //UI
+    [SerializeField]
+    private TextMeshProUGUI conditionText;
 
 
     void Start()
@@ -133,5 +139,28 @@ public class PlayerController : MonoBehaviour
             // Rising: Change multiplier to make player reach peak of jump faster
             rb.linearVelocity += Vector3.up * Physics.gravity.y * ascendMultiplier * Time.fixedDeltaTime;
         }
+    }
+
+
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.CompareTag("Dangerous")){
+            canMove = false;
+            conditionText.text = "YOU DIED";
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("WinCondition"))
+        {
+            Move(false);
+            conditionText.text = "YOU WIN!!";
+        }
+    }
+
+    public void Move(bool _canMove)
+    {
+        canMove = _canMove;
     }
 }

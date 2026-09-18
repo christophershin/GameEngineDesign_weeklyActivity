@@ -35,25 +35,26 @@ public class PlayerShoot : MonoBehaviour
     void ShootPortal()
     {
         Vector3 shootdirection = cam.transform.forward;
+        
+        
 
-
-        if (portal1.GetComponent<portals>().fired == false)
+        if (portal1.GetComponent<portals>().GetFired() == false)
         {
-            portal1.GetComponent<portals>().fired = true;
-            portal2.GetComponent<portals>().fired = false;
-            
+            portal1.GetComponent<portals>().SetFired(true);
+            portal2.GetComponent<portals>().SetFired(false);
 
-            //StartCoroutine(pauseEnableProj(portal1));
+
+            StartCoroutine(pauseEnableProj(portal1));
             portal1.transform.position = transform.position;
             portal1.GetComponent<Rigidbody>().linearVelocity = shootdirection * 10000 * Time.deltaTime;
 
-        }else if (portal2.GetComponent<portals>().fired == false)
+        }else if (portal2.GetComponent<portals>().GetFired() == false)
         {
-            portal2.GetComponent<portals>().fired = true;
-            portal1.GetComponent<portals>().fired = false;
-            
+            portal2.GetComponent<portals>().SetFired(true);
+            portal1.GetComponent<portals>().SetFired(false);
 
-            //StartCoroutine(pauseEnableProj(portal2));
+
+            StartCoroutine(pauseEnableProj(portal2));
             portal2.transform.position = transform.position;
             portal2.GetComponent<Rigidbody>().linearVelocity = shootdirection * 10000 * Time.deltaTime;
         }
@@ -69,9 +70,9 @@ public class PlayerShoot : MonoBehaviour
     private IEnumerator pauseEnableProj(GameObject proj)
     {
 
-        proj.SetActive(false);
+        proj.GetComponent<portals>().setVisible(false);
         yield return new WaitForSecondsRealtime(0.2f);
-        proj.SetActive(true);
+        proj.GetComponent<portals>().setVisible(true);
     }
 
 }
