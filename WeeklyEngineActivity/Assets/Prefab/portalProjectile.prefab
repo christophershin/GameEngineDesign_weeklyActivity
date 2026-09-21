@@ -154,4 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::portals
   destroyOnCollision: 0
-  fired: 0
+  otherPortal: {fileID: 0}
+  layer:
+    serializedVersion: 2
+    m_Bits: 8

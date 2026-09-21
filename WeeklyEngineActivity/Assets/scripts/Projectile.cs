@@ -1,3 +1,4 @@
+using Unity.AppUI.Core;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IMoveable 
@@ -6,6 +7,9 @@ public class Projectile : MonoBehaviour, IMoveable
 
     protected Rigidbody rb;
     public bool destroyOnCollision = true;
+    private bool canMove = true;
+    private float speed;
+    private Vector3 dir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected void Start()
@@ -26,10 +30,24 @@ public class Projectile : MonoBehaviour, IMoveable
         }
     }
 
+    protected void Update()
+    {
+
+       transform.position += dir * speed * Time.deltaTime;
+        
+            
+    }
+
+    public void SetVelocity(float _portalSpeed, Vector3 _portalDir)
+    {
+        speed = _portalSpeed;
+        dir = _portalDir;
+    }
+
 
     public void Move(bool _canMove)
     {
-        rb.linearVelocity = new Vector3(0, 0, 0);
+        speed = 0;
     }
 
 }

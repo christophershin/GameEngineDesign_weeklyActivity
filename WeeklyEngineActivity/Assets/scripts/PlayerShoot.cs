@@ -11,6 +11,9 @@ public class PlayerShoot : MonoBehaviour
     public GameObject portal2;
 
     [SerializeField]
+    private float portalSpeed = 20f;
+
+    [SerializeField]
     private Camera cam;
 
 
@@ -46,9 +49,10 @@ public class PlayerShoot : MonoBehaviour
 
             StartCoroutine(pauseEnableProj(portal1));
             portal1.transform.position = transform.position;
-            portal1.GetComponent<Rigidbody>().linearVelocity = shootdirection * 10000 * Time.deltaTime;
-
-        }else if (portal2.GetComponent<portals>().GetFired() == false)
+            portal1.GetComponent<portals>().SetVelocity(portalSpeed, shootdirection);
+            //portal1.GetComponent<Rigidbody>().linearVelocity = shootdirection * 1000 * Time.deltaTime;
+        }
+        else if (portal2.GetComponent<portals>().GetFired() == false)
         {
             portal2.GetComponent<portals>().SetFired(true);
             portal1.GetComponent<portals>().SetFired(false);
@@ -56,7 +60,8 @@ public class PlayerShoot : MonoBehaviour
 
             StartCoroutine(pauseEnableProj(portal2));
             portal2.transform.position = transform.position;
-            portal2.GetComponent<Rigidbody>().linearVelocity = shootdirection * 10000 * Time.deltaTime;
+            portal2.GetComponent<portals>().SetVelocity(portalSpeed, shootdirection);
+            //portal2.GetComponent<Rigidbody>().linearVelocity = shootdirection * 1000 * Time.deltaTime;
         }
         
 
@@ -71,7 +76,7 @@ public class PlayerShoot : MonoBehaviour
     {
 
         proj.GetComponent<portals>().setVisible(false);
-        yield return new WaitForSecondsRealtime(0.2f);
+        yield return new WaitForSecondsRealtime(0.1f);
         proj.GetComponent<portals>().setVisible(true);
     }
 

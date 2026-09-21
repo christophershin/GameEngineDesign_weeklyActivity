@@ -1,3 +1,4 @@
+using Unity.AppUI.Core;
 using UnityEngine;
 
 public class EnergyProjectile : Projectile
@@ -10,14 +11,17 @@ public class EnergyProjectile : Projectile
     new void Start()
     {
         base.Start();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+
+    new void Update()
     {
-        rb.linearVelocity = new Vector3(10,0,0) * directionBounce;
-    }
+        base.Update();
+        Vector3 dir = new Vector3(1, 0, 0) * directionBounce;
+        SetVelocity(10, dir);
 
+    }
 
 
     new void OnTriggerEnter(Collider other)
