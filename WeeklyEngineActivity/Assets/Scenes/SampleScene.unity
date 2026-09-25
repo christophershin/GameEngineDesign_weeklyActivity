@@ -403,6 +403,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chapter.Singleton.LevelManager
   spawner: {fileID: 3097951946797792227}
+  gameEnded: 0
+  player: {fileID: 668215093}
+--- !u!1 &668215093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 232250397791223052, guid: 01aeb258bbd01d04e94caa55086c06ff, type: 3}
+  m_PrefabInstance: {fileID: 674544095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &674544095
 PrefabInstance:
   m_ObjectHideFlags: 0

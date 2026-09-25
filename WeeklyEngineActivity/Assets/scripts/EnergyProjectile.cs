@@ -1,9 +1,12 @@
 using Unity.AppUI.Core;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnergyProjectile : Projectile
 {
 
+    [SerializeField]
+    private float damage = 1;
 
     private int directionBounce = 1;
 
@@ -18,9 +21,7 @@ public class EnergyProjectile : Projectile
     new void Update()
     {
         base.Update();
-        Vector3 dir = new Vector3(1, 0, 0) * directionBounce;
-        SetVelocity(10, dir);
-
+        dir *= directionBounce;
     }
 
 
@@ -32,4 +33,14 @@ public class EnergyProjectile : Projectile
     }
 
 
+    public float getProjectileDamage()
+    {
+        return damage;
+    }
+
+
+    public void setProjectileDamage(float _dmg)
+    {
+        damage = _dmg;
+    }
 }

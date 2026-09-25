@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e49ec97e1529d4597277de7e698411, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShooterEnemy
+  projectile: {fileID: 481478857322573463, guid: a2078066c3440654082b3a4d9bd8e730, type: 3}

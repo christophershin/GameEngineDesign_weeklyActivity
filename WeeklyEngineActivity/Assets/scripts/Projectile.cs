@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour, IMoveable
     public bool destroyOnCollision = true;
     private bool canMove = true;
     private float speed;
-    private Vector3 dir;
+    protected Vector3 dir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected void Start()

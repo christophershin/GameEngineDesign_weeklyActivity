@@ -1,3 +1,4 @@
+using Chapter.Singleton;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class PlayerController : MonoBehaviour,IMoveable
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+    [SerializeField]
+    private float playerHealth = 100;
 
 
     // Camera Rotation
@@ -145,8 +148,21 @@ public class PlayerController : MonoBehaviour,IMoveable
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Dangerous")){
-            canMove = false;
-            conditionText.text = "YOU DIED";
+
+
+            if (collision.gameObject.GetComponent<EnergyProjectile>())
+            {
+                playerHealth -= collision.gameObject.GetComponent<EnergyProjectile>().getProjectileDamage();
+            }
+
+
+
+            if (playerHealth <= 0)
+            {
+                canMove = false;
+                conditionText.text = "YOU DIED";
+            }
+
         }
     }
 
