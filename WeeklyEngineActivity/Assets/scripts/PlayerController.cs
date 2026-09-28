@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour,IMoveable
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+
     [SerializeField]
     private float playerHealth = 100;
 
@@ -35,11 +36,6 @@ public class PlayerController : MonoBehaviour,IMoveable
     private float groundCheckDelay = 0.3f;
     private float playerHeight;
     private float raycastDistance;
-
-
-    //UI
-    [SerializeField]
-    private TextMeshProUGUI conditionText;
 
 
     void Start()
@@ -163,8 +159,8 @@ public class PlayerController : MonoBehaviour,IMoveable
 
             if (playerHealth <= 0)
             {
-                canMove = false;
-                conditionText.text = "YOU DIED";
+                Move(false);
+                LevelManager.Instance.gameEnded = true;
             }
 
         }
@@ -175,7 +171,7 @@ public class PlayerController : MonoBehaviour,IMoveable
         if (collision.gameObject.CompareTag("WinCondition"))
         {
             Move(false);
-            conditionText.text = "YOU WIN!!";
+            LevelManager.Instance.gameWin = true;
         }
     }
 
@@ -183,4 +179,10 @@ public class PlayerController : MonoBehaviour,IMoveable
     {
         canMove = _canMove;
     }
+
+    public void SetPlayerHealth(float _hp)
+    {
+        playerHealth = _hp;
+    }
+    
 }
