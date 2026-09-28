@@ -21,7 +21,7 @@ public class EnergyProjectile : Projectile
     new void Update()
     {
         base.Update();
-        dir *= directionBounce;
+
     }
 
 
@@ -29,7 +29,12 @@ public class EnergyProjectile : Projectile
     {
         base.OnTriggerEnter(other);
 
-        directionBounce *=-1;
+        if(other.gameObject.layer == 3) {
+            Debug.Log("hit");
+            directionBounce *= -1;
+            dir *= directionBounce;
+
+        }
     }
 
 

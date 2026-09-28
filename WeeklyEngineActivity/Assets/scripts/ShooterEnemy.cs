@@ -21,10 +21,12 @@ public class ShooterEnemy : EnemyBase
     public override void attack()
     {
         Debug.Log("attack");
-        Vector3 dir = LevelManager.Instance.player.transform.position;
+        Vector3 dir = LevelManager.Instance.player.transform.position - transform.position;
 
         GameObject proj = Instantiate(projectile, transform);
         proj.GetComponent<EnergyProjectile>().SetVelocity(10, dir);
         proj.GetComponent<EnergyProjectile>().setProjectileDamage(50);
+        proj.GetComponent<EnergyProjectile>().canMoveAfterHitWall = false;
+        //proj.GetComponent<EnergyProjectile>().destroyOnCollision = true;
     }
 }

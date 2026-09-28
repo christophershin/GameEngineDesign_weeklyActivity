@@ -118,33 +118,33 @@ public class portals : Projectile
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1, layer))
         {
-            Debug.Log("Did forward");
+            //Debug.Log("Did forward");
             collisionDir = transform.TransformDirection(Vector3.back);
         }
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.back), out hit, 1, layer))
         {
-            Debug.Log("Did back");
+            //Debug.Log("Did back");
             collisionDir = transform.TransformDirection(Vector3.forward);
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, 1, layer))
         {
-            Debug.Log("Did right");
+            //Debug.Log("Did right");
             collisionDir = transform.TransformDirection(Vector3.left);
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.left), out hit, 1, layer))
         {
-            Debug.Log("Did left");
+            //Debug.Log("Did left");
             collisionDir = transform.TransformDirection(Vector3.right);
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.up), out hit, 1, layer))
         {
-            Debug.Log("Did up");
+            //Debug.Log("Did up");
             collisionDir = transform.TransformDirection(Vector3.down);
         }
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), out hit, 1, layer))
         {
-            Debug.Log("Did down");
+            //Debug.Log("Did down");
             collisionDir = transform.TransformDirection(Vector3.up);
         }
     }

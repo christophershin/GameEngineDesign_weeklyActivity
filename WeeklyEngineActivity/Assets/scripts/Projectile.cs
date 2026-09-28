@@ -7,7 +7,7 @@ public class Projectile : MonoBehaviour, IMoveable
 
     protected Rigidbody rb;
     public bool destroyOnCollision = true;
-    private bool canMove = true;
+    public bool canMoveAfterHitWall = false;
     private float speed;
     protected Vector3 dir;
 
@@ -21,7 +21,7 @@ public class Projectile : MonoBehaviour, IMoveable
     {
         if (other.gameObject.layer == 3)
         {
-            Move(false);
+            Move(canMoveAfterHitWall);
             if (destroyOnCollision)
             {
                 Destroy(gameObject);
@@ -47,7 +47,10 @@ public class Projectile : MonoBehaviour, IMoveable
 
     public void Move(bool _canMove)
     {
-        speed = 0;
+        if (!_canMove)
+        {
+            speed = 0;
+        }
     }
 
 
