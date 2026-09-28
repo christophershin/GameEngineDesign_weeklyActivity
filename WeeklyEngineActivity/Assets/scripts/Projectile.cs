@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour, IMoveable
     protected Rigidbody rb;
     public bool destroyOnCollision = true;
     public bool canMoveAfterHitWall = false;
-    private float speed;
+    protected float speed;
     protected Vector3 dir;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,18 +30,17 @@ public class Projectile : MonoBehaviour, IMoveable
         }
     }
 
-    protected void Update()
-    {
 
-       transform.position += dir * speed * Time.deltaTime;
-        
-            
+
+    private void FixedUpdate()
+    {
+        rb.linearVelocity = dir * speed;
     }
 
-    public void SetVelocity(float _portalSpeed, Vector3 _portalDir)
+    public void SetVelocity(float _Speed, Vector3 _Dir)
     {
-        speed = _portalSpeed;
-        dir = _portalDir;
+        speed = _Speed;
+        dir = _Dir.normalized;
     }
 
 

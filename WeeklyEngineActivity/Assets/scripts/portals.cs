@@ -24,9 +24,8 @@ public class portals : Projectile
 
 
     // Update is called once per frame
-    new void Update()
+    void Update()
     {
-        base.Update();
 
         timer -= Time.deltaTime;
 
