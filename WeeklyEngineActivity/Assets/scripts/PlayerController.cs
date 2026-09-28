@@ -154,6 +154,10 @@ public class PlayerController : MonoBehaviour,IMoveable
             {
                 playerHealth -= collision.gameObject.GetComponent<EnergyProjectile>().getProjectileDamage();
             }
+            else
+            {
+                playerHealth = 0;
+            }
 
 
 

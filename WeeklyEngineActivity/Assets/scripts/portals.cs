@@ -89,7 +89,7 @@ public class portals : Projectile
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.layer != 3)
         {
 
             if (timer <= 0)
@@ -97,6 +97,7 @@ public class portals : Projectile
                 if (visible && otherPortal.GetComponent<portals>().visible)
                 {
                     other.gameObject.transform.position = otherPortal.transform.position + otherPortal.GetComponent<portals>().getCollisionDIR() * 3;
+                    
                     other.GetComponent<Rigidbody>().linearVelocity += otherPortal.GetComponent<portals>().getCollisionDIR() * 3;
                 }
 
