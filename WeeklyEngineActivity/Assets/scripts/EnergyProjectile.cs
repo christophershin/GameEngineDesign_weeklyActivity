@@ -2,11 +2,10 @@ using Unity.AppUI.Core;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class EnergyProjectile : Projectile
+public class EnergyProjectile : Projectile,IcanDamage
 {
 
-    [SerializeField]
-    private float damage = 1;
+
 
 
     new void OnTriggerEnter(Collider other)
@@ -20,14 +19,4 @@ public class EnergyProjectile : Projectile
     }
 
 
-    public float getProjectileDamage()
-    {
-        return damage;
-    }
-
-
-    public void setProjectileDamage(float _dmg)
-    {
-        damage = _dmg;
-    }
 }

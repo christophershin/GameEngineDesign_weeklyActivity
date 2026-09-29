@@ -1,7 +1,7 @@
 using Unity.AppUI.Core;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour, IMoveable 
+public class Projectile : MonoBehaviour, IMoveable, IcanDamage
 {
 
 
@@ -10,6 +10,10 @@ public class Projectile : MonoBehaviour, IMoveable
     public bool canMoveAfterHitWall = false;
     protected float speed;
     protected Vector3 dir;
+
+
+    [SerializeField]
+    private float damage = 1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected void Start()
@@ -52,7 +56,22 @@ public class Projectile : MonoBehaviour, IMoveable
         }
     }
 
+    public void DealDamage(float _dmg)
+    {
 
+    }
+
+
+    public float getProjectileDamage()
+    {
+        return damage;
+    }
+
+
+    public void setProjectileDamage(float _dmg)
+    {
+        damage = _dmg;
+    }
 
 
 }

@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour,IMoveable
     [SerializeField]
     private float playerHealth = 100;
 
+    [SerializeField]
+    private TextMeshProUGUI healthText;
+
 
     // Camera Rotation
     public float mouseSensitivity = 2f;
@@ -57,6 +60,8 @@ public class PlayerController : MonoBehaviour,IMoveable
     {
         moveHorizontal = Input.GetAxisRaw("Horizontal");
         moveForward = Input.GetAxisRaw("Vertical");
+
+        healthText.text = "Health: " + playerHealth.ToString();
 
         if (canMove)
         {

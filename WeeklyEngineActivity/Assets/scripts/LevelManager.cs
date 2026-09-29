@@ -12,6 +12,7 @@ namespace Chapter.Singleton {
     public class LevelManager : Singleton<LevelManager>
     {
 
+        public EnemySpawner flyingEnemySpawner;
         public EnemySpawner spawner;
         public EnemySpawner[] ProjectileSpawner;
 
@@ -32,7 +33,7 @@ namespace Chapter.Singleton {
 
         private void Start()
         {
-
+            flyingEnemySpawner.SpawnEnemy();
             EnemyBase enemy = spawner.SpawnEnemy();
             enemy.attack();
 
