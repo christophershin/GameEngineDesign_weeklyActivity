@@ -1,6 +1,4 @@
-using Unity.AppUI.Core;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class EnergyProjectile : Projectile,IcanDamage
 {
