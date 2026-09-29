@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour, IMoveable, IcanDamage
     protected float speed;
     protected Vector3 dir;
 
+    protected float lifetime = 1;
+
 
     [SerializeField]
     private float damage = 1;
@@ -33,6 +35,17 @@ public class Projectile : MonoBehaviour, IMoveable, IcanDamage
 
         }
     }
+
+    protected void Update()
+    {
+        lifetime -= Time.deltaTime;
+
+        if (lifetime <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
 
 
@@ -73,5 +86,8 @@ public class Projectile : MonoBehaviour, IMoveable, IcanDamage
         damage = _dmg;
     }
 
-
+    public void setLifeTime(float _time)
+    {
+        lifetime = _time;
+    }
 }

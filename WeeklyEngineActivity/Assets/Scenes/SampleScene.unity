@@ -403,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9baf8fe91370d574ca6d82e4bec4c1c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Chapter.Singleton.LevelManager
+  flyingEnemySpawner: {fileID: 1216339212}
   spawner: {fileID: 3097951946797792227}
   ProjectileSpawner:
   - {fileID: 7950147135273839599}
@@ -1142,6 +1143,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a41acdd857f0a545805e2bf5e3a1534, type: 3}
+--- !u!114 &1216339212 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8100866786576099118, guid: 7a41acdd857f0a545805e2bf5e3a1534, type: 3}
+  m_PrefabInstance: {fileID: 1216339211}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6401f6900edc4b40b4d959bbd4dfb2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemySpawner
 --- !u!1 &1233617678
 GameObject:
   m_ObjectHideFlags: 0

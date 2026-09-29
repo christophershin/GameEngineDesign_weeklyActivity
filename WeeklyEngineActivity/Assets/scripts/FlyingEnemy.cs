@@ -11,7 +11,7 @@ public class FlyingEnemy : EnemyBase
     public float maxTimer = 0.5f;
     private float timer;
 
-    private Vector3 dir = new Vector3(0, 0, 1);
+    private Vector3 dir = new Vector3(1,0,0);
 
 
     // Update is called once per frame
@@ -47,14 +47,15 @@ public class FlyingEnemy : EnemyBase
     public override void attack()
     {
         Debug.Log("attack");
-        Vector3 dir = new Vector3(0, 0, 1);
+        Vector3 dir = new Vector3(1,0,0);
 
         GameObject proj = Instantiate(bullet, transform);
-        proj.GetComponent<EnergyProjectile>().SetVelocity(10, dir);
+        proj.GetComponent<EnergyProjectile>().SetVelocity(20, dir);
         proj.GetComponent<EnergyProjectile>().setProjectileDamage(100);
+        proj.GetComponent<Projectile>().setLifeTime(3);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer == 3)
         {

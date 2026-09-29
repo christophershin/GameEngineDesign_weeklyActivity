@@ -154,5 +154,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnergyProjectile
   destroyOnCollision: 0
-  canMoveAfterHitWall: 0
+  canMoveAfterHitWall: 1
   damage: 100

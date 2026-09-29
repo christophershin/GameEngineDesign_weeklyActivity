@@ -14,7 +14,7 @@ namespace Chapter.Singleton {
 
         public EnemySpawner flyingEnemySpawner;
         public EnemySpawner spawner;
-        public EnemySpawner[] ProjectileSpawner;
+        public ProjectileSpawner[] ProjectileSpawner;
 
 
         [HideInInspector]
@@ -39,7 +39,8 @@ namespace Chapter.Singleton {
 
             for (int i=0; i<ProjectileSpawner.Length; i++)
             {
-                ProjectileSpawner[i].SpawnEnemy();
+                Projectile proj = ProjectileSpawner[i].SpawnProjectile();
+                proj.setLifeTime(10000);
             }
 
             
