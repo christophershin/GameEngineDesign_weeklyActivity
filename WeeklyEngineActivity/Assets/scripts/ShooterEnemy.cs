@@ -38,6 +38,7 @@ public class ShooterEnemy : EnemyBase
         GameObject proj = Instantiate(projectile, transform);
         proj.GetComponent<EnergyProjectile>().SetVelocity(10, dir);
         proj.GetComponent<EnergyProjectile>().setProjectileDamage(100);
+        proj.GetComponent<EnergyProjectile>().setLifeTime(8);
         proj.GetComponent<EnergyProjectile>().canMoveAfterHitWall = false;
         proj.GetComponent<EnergyProjectile>().destroyOnCollision = true;
     }

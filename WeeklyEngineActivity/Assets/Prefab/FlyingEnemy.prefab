@@ -154,4 +154,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
   bullet: {fileID: 890150639975335760, guid: 77c237800f4a6be43904b1aa730dd62f, type: 3}
-  maxTimer: 1
+  maxTimer: 0.2

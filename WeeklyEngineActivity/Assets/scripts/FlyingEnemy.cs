@@ -9,7 +9,7 @@ public class FlyingEnemy : EnemyBase
 
 
     public float maxTimer = 0.5f;
-    private float timer;
+    private float timer = 0.5f;
 
     private Vector3 dir = new Vector3(1,0,0);
 
@@ -21,7 +21,7 @@ public class FlyingEnemy : EnemyBase
         timer -= Time.deltaTime;
 
 
-        if (timer <= 0)
+        if (timer <= 0.0)
         {
 
             attack();
@@ -47,12 +47,12 @@ public class FlyingEnemy : EnemyBase
     public override void attack()
     {
         Debug.Log("attack");
-        Vector3 dir = new Vector3(1,0,0);
+        Vector3 dir = new Vector3(0,0,-1);
 
         GameObject proj = Instantiate(bullet, transform);
-        proj.GetComponent<EnergyProjectile>().SetVelocity(20, dir);
-        proj.GetComponent<EnergyProjectile>().setProjectileDamage(100);
-        proj.GetComponent<Projectile>().setLifeTime(3);
+        proj.GetComponent<Projectile>().SetVelocity(20, dir);
+        proj.GetComponent<Projectile>().setProjectileDamage(20);
+        proj.GetComponent<Projectile>().setLifeTime(1.5f);
     }
 
     private void OnCollisionEnter(Collision other)
