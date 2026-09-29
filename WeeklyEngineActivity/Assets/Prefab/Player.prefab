@@ -182,7 +182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShoot
   portal1: {fileID: 0}
   portal2: {fileID: 0}
-  portalSpeed: 10
+  portalSpeed: 20
   cam: {fileID: 5160822332489407313}
 --- !u!1 &2996994885640679266
 GameObject:

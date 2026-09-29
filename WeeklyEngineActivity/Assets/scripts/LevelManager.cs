@@ -53,7 +53,7 @@ namespace Chapter.Singleton {
             }else if (gameWin)
             {
                 conditionText.text = "YOU WIN!!";
-
+                NextScene();
             }
             
         }
@@ -74,11 +74,11 @@ namespace Chapter.Singleton {
 
 
             yield return new WaitForSeconds(1);
-            player.transform.position = respawnPlatform.transform.position + new Vector3(0, 1, 0) ;
+            player.transform.position = respawnPlatform.transform.position + new Vector3(0, 1, 0);
             gameEnded = false;
             player.GetComponent<PlayerController>().Move(true);
             player.GetComponent<PlayerController>().SetPlayerHealth(100);
-            conditionText.text = " ";
+            conditionText.text = " "; 
 
         }
 

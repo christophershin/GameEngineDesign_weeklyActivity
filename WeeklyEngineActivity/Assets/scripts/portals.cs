@@ -88,7 +88,7 @@ public class portals : Projectile
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer != 3)
+        if (other.gameObject.layer != 3 && other.gameObject.GetComponent<Rigidbody>())
         {
 
             if (timer <= 0)
@@ -97,7 +97,7 @@ public class portals : Projectile
                 {
                     other.gameObject.transform.position = otherPortal.transform.position + otherPortal.GetComponent<portals>().getCollisionDIR() * 3;
                     
-                    other.GetComponent<Rigidbody>().linearVelocity += otherPortal.GetComponent<portals>().getCollisionDIR() * 3;
+                    other.GetComponent<Rigidbody>().linearVelocity += otherPortal.GetComponent<portals>().getCollisionDIR() * 5;
                 }
 
                 timer = teleportTimer;
