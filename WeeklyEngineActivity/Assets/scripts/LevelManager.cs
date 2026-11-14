@@ -34,20 +34,28 @@ namespace Chapter.Singleton {
         private void Start()
         {
             flyingEnemySpawner.SpawnEnemy();
-            EnemyBase enemy = spawner.SpawnEnemy();
-            enemy.attack();
+           // EnemyBase enemy = spawner.SpawnEnemy();
+            //enemy.attack();
 
-            for (int i=0; i<ProjectileSpawner.Length; i++)
-            {
-                Projectile proj = ProjectileSpawner[i].SpawnProjectile();
-                proj.setLifeTime(10000);
-            }
+            //for (int i=0; i<ProjectileSpawner.Length; i++)
+            //{
+            //    Projectile proj = ProjectileSpawner[i].SpawnProjectile();
+            //    proj.setLifeTime(10000);
+            //}
 
             
         }
 
         private void Update()
         {
+
+
+
+
+
+
+
+
             if (gameEnded)
             {
                 StartCoroutine(GameEnded());

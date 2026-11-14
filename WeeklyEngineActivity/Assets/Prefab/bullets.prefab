@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd788c1d2243c314389f4d4c9cf1c9b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  destroyOnCollision: 1
+  destroyOnCollision: 0
   canMoveAfterHitWall: 0
+  hasLifetime: 1
   damage: 1

@@ -7,6 +7,7 @@ public class FlyingEnemy : EnemyBase
     [SerializeField]
     private GameObject bullet;
 
+    public float speed;
 
     public float maxTimer = 0.5f;
     private float timer = 0.5f;
@@ -19,14 +20,14 @@ public class FlyingEnemy : EnemyBase
     {
 
         timer -= Time.deltaTime;
-
+        attack();
 
         if (timer <= 0.0)
         {
 
-            attack();
+            
 
-            timer = maxTimer;
+
         }
     }
 
@@ -34,7 +35,7 @@ public class FlyingEnemy : EnemyBase
     private void FixedUpdate()
     {
 
-        rb.linearVelocity = dir * 10;
+        rb.linearVelocity = dir * speed;
 
     }
 

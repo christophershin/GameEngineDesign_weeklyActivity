@@ -1136,6 +1136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FlyingEnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8611400307604786112, guid: 7a41acdd857f0a545805e2bf5e3a1534, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

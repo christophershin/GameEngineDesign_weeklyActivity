@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2196151260191682772}
   - component: {fileID: 2448553333775263081}
   - component: {fileID: 3762357504596330776}
-  - component: {fileID: 7044060582925301956}
+  - component: {fileID: 7043118531978059572}
   m_Layer: 0
   m_Name: FlyingEnemy
   m_TagString: Untagged
@@ -141,7 +141,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7044060582925301956
+--- !u!114 &7043118531978059572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,4 +154,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlyingEnemy
   bullet: {fileID: 890150639975335760, guid: 77c237800f4a6be43904b1aa730dd62f, type: 3}
-  maxTimer: 0.2
+  speed: 10
+  maxTimer: 0.5

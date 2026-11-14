@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IMoveable, IcanDamage
@@ -9,6 +10,9 @@ public class Projectile : MonoBehaviour, IMoveable, IcanDamage
     public bool canMoveAfterHitWall = false;
     protected float speed;
     protected Vector3 dir;
+
+    [SerializeField]
+    protected bool hasLifetime = true;
 
     protected float lifetime = 1;
 
@@ -37,11 +41,14 @@ public class Projectile : MonoBehaviour, IMoveable, IcanDamage
 
     protected void Update()
     {
-        lifetime -= Time.deltaTime;
-
-        if (lifetime <= 0)
+        if (hasLifetime)
         {
-            Destroy(gameObject);
+            lifetime -= Time.deltaTime;
+
+            if (lifetime <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
