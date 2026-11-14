@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ab3dd117e957e4db3435ef186c8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ObjectPooling
-  maxBulletAmount: 250
+  maxBulletAmount: 500
   objectPoolBullets: {fileID: 890150639975335760, guid: d3b366ee17cd73a47b0ae83a7822bcf0, type: 3}
   Pool: []
