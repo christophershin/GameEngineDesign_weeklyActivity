@@ -4,8 +4,6 @@ using UnityEngine;
 public class ObjectPoolShooting : EnemyBase
 {
 
-    public ObjectPooling objectPool;
-
     public float maxTimer = 0.5f;
     private float timer = 0.5f;
 
@@ -41,19 +39,17 @@ public class ObjectPoolShooting : EnemyBase
         Vector3 dir = new Vector3(0, 0, -1);
         GameObject bullet;
 
-        for (int i=0; i<objectPool.maxBulletAmount; i++)
-        {
-            if (objectPool.Pool[i].GetComponent<ObjectPoolBullets>().isActive == false)
-            {
-                bullet = objectPool.Pool[i];
-                bullet.transform.position = transform.position;
-                bullet.GetComponent<ObjectPoolBullets>().Activate();
-                bullet.GetComponent<Projectile>().SetVelocity(20, dir);
-                bullet.GetComponent<Projectile>().setLifeTime(1.5f);
-                break;
-            }
+
             
+        bullet = ObjectPooling.Instance.getInvalidProjectile();
+        if (bullet)
+        {
+            bullet.transform.position = transform.position;
+            bullet.GetComponent<ObjectPoolBullets>().Activate();
+            bullet.GetComponent<Projectile>().SetVelocity(20, dir);
+            bullet.GetComponent<Projectile>().setLifeTime(1.5f);
         }
+        
     }
 
     private void OnCollisionEnter(Collision other)

@@ -14,7 +14,7 @@ public class ObjectPooling : Singleton<ObjectPooling>
 
     private void Start()
     {
-        for(int i=0; i<maxBulletAmount; i++)
+        for (int i = 0; i < maxBulletAmount; i++)
         {
 
             GameObject b = Instantiate(objectPoolBullets, transform);
@@ -25,6 +25,22 @@ public class ObjectPooling : Singleton<ObjectPooling>
     }
 
 
+    public GameObject getInvalidProjectile()
+    {
+
+        for (int i = 0; i < maxBulletAmount; i++)
+        {
+            if (Pool[i].GetComponent<ObjectPoolBullets>().isActive == false)
+            {
 
 
+
+                return Pool[i];
+                break;
+            }
+
+        }
+
+        return null;
+    }
 }
