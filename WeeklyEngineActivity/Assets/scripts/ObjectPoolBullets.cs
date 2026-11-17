@@ -9,32 +9,35 @@ public class ObjectPoolBullets : Projectile
 
     void OnTriggerEnter(Collider other)
     {
-
-        if (other.gameObject.layer == 3)
+        if (isActive)
         {
-
-            if (destroyOnCollision)
+            if (other.gameObject.layer == 3)
             {
-                Deavtivate();
-            }
 
+                if (destroyOnCollision)
+                {
+                    Deavtivate();
+                }
+
+            }
         }
     }
 
     void Update()
     {
 
-        if (hasLifetime)
+        if (isActive)
         {
-            lifetime -= Time.deltaTime;
-
-            if (lifetime <= 0)
+            if (hasLifetime)
             {
-                Deavtivate();
+                lifetime -= Time.deltaTime;
+
+                if (lifetime <= 0)
+                {
+                    Deavtivate();
+                }
             }
         }
-
-
     }
 
 

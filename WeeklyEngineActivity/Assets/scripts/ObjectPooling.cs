@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using Chapter.Singleton;
 using UnityEngine;
 using UnityEngine.Pool;
 
 
-public class ObjectPooling : MonoBehaviour
+public class ObjectPooling : Singleton<ObjectPooling>
 {
     public int maxBulletAmount = 100;
     public GameObject objectPoolBullets;
