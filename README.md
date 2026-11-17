@@ -7,8 +7,20 @@ You use left-click to create a portal that travels and stops when hitting an obs
 There are also a few enemies that get in your way. 
 
 
+Before:
+
+<img width="619" height="161" alt="image" src="https://github.com/user-attachments/assets/7d72726f-5cc3-40bf-ae98-13334027d1d4" />
+
+After:
+
+<img width="619" height="165" alt="image" src="https://github.com/user-attachments/assets/6b4c8f0a-e0a2-4e8a-91e4-7f651ef846bd" />
+
+
+
+
 What did you notice was impacting the performance of your project?
 
+I noticed that spawning projectiles per frame was hurting my performance quite a bit. 
 
 Which pattern(s) did you implement, and what behavior did they replace?
 
